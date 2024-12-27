@@ -833,10 +833,9 @@ h2 {
 }
 
 /* Skills Section */
-#skills{
+#skills {
   padding: 85px 80px;
-  background-color:#0e1122;
-
+  background-color: #0e1122;
 }
 
 .skills-container {
@@ -845,7 +844,7 @@ h2 {
   justify-content: center;
   gap: 2rem; /* Increased gap for better spacing */
   margin-top: 1.5rem;
-  background-color:#0e1122;
+  background-color: #0e1122;
 }
 
 .skill {
@@ -877,6 +876,17 @@ h2 {
 
 .skill:hover i {
   color: #0d1117; /* Invert icon color on hover */
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  .skills-container {
+    gap: 1rem; /* Adjust spacing for smaller screens */
+  }
+  
+  .skill {
+    width: calc(50% - 1rem); /* Ensure two items per row with some gap */
+  }
 }
 
 
@@ -1022,11 +1032,28 @@ form button:hover {
 
 /* Footer */
 footer {
-  background-color:#0e1122;
+  background-color: #0e1122;
   color: #e4e6eb;
-  text-align: center;
+  text-align: center; /* Default alignment for larger devices */
   padding: 2rem 0;
   position: relative;
+}
+
+footer p, footer button {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  footer {
+    text-align: left; /* Align content to the left for smaller devices */
+    padding-left: 1rem; /* Add some padding for better appearance */
+  }
+
+  footer p, footer button {
+    display: block;
+    margin: 0; /* Remove auto margins for left alignment */
+  }
 }
 
 /* Scroll-to-Top Button */
