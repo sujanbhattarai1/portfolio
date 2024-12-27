@@ -143,7 +143,6 @@ body {
   }
 }
 
-
 /* Small Screens (Below 768px) */
 @media (max-width: 768px) {
   .nav-menu ul {
@@ -463,6 +462,19 @@ nav {
   border: 1px solid #ffffff;
   border-radius: 10px;
   transition: all 0.3s ease;
+}
+
+/* Media query for smaller screens (mobile devices) */
+@media (max-width: 600px) {
+  .links {
+    display: block; /* Stack the links vertically */
+  }
+
+  .links a {
+    margin: 5px 0; /* Add vertical margin to create a gap between links */
+    width: 100%; /* Make links take full width for better readability */
+    text-align: center; /* Center the text inside the links */
+  }
 }
 
 .links a:hover {
