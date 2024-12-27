@@ -464,6 +464,14 @@ nav {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 768px) { /* Adjust the max-width based on your design */
+  .links a.resume {
+    margin-top: 6px; /* Add gap after LinkedIn */
+  }
+}
+
+
+
 .links a:hover {
   background-color: #fff;
   color: #000;
