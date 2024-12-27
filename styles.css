@@ -1,0 +1,1222 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color:#152742;
+  color: #e4e6eb;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styles */
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.nav-menu li {
+  margin: 0;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  transition: opacity 0.3s;
+}
+
+.nav-menu a:hover {
+  opacity: 0.7;
+}
+
+.nav-menu a span {
+  display: inline-block;
+}
+
+/* Hamburger Button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #000;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  z-index: 1100;
+  transition: color 0.3s;
+}
+
+.nav-toggle:hover {
+  color: #fff;
+}
+
+/* Large Screens (Above 1066px) */
+@media (min-width: 1066px) {
+  .nav-menu {
+    justify-content:flex-end; /* Align menu to the right */
+    height: 40px;
+  }
+
+  .nav-menu ul {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    padding: 0;
+    gap: 0.3rem; /* Reduced gap between items */
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    font-size: 1.05rem; /* Smaller icon size */
+    gap: 0.1rem; /* Reduced spacing between icon and text */
+  }
+
+  .nav-menu a i {
+    font-size: 1.05rem; /* Adjust size of the icons */
+  }
+
+  .nav-toggle {
+    display: none; /* Hide hamburger icon */
+  }
+}
+
+
+/* Medium Screens (768px to 1065px) */
+@media (min-width: 768px) and (max-width: 1065px) {
+  .nav-menu ul {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    height: 100%;
+    width: 23%;
+    background-color:transparent;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+    border-radius: 0 0 0 10px;
+    gap: 1.2rem; /* Increased gap between the icons */
+  }
+
+  .nav-menu ul.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+
+/* Small Screens (Below 768px) */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    display: none;
+    position: fixed;
+    top: 127px; /* Adjusted to place it below the hamburger icon */
+    right: 0; /* Position the entire nav menu on the right side of the screen */
+    height: auto; /* Adjust height based on content */
+    width: auto; /* Auto width to fit content */
+    background-color: transparent; /* Transparent background initially */
+    padding: 0.5rem; /* Adjusted padding to reduce size */
+    flex-direction: column;
+    align-items: flex-end; /* Center-align items */
+    z-index: 1000;
+    border-radius: 0 0 0 10px;
+    gap: 0.24rem; /* Reduced gap between items */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+   
+  }
+
+  .nav-menu ul.show {
+    display: flex; /* Show the menu when toggled */
+    flex-direction: column; /* Stack icons vertically */
+    align-items: flex-end; /* Center-align the icons */
+    gap: 0.2rem; /* Add spacing between icons */
+    background-color: transparent; /* Remove any background color */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    list-style: none; /* Remove bullet points */
+    box-shadow: none; /* Ensure no box shadow */
+    border: none; /* Ensure no border */
+  }
+  
+
+  .nav-menu li {
+    width: auto; /* Adjust width to fit only icons */
+    display: flex;
+    justify-content: center; /* Center-align each list item content */
+    margin: 0;
+  }
+
+  .nav-menu a {
+    font-size: 15rem; /* Adjust icon size */
+    gap: 0.25rem; /* Reduced spacing between icon and text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Align text to the center */
+    width: 40px; /* Set fixed width for the icon area */
+    height: 40px; /* Set fixed height for the icon area */
+    border-radius: 50%; /* Optional: make the icon area circular */
+    background-color: transparent; /* Ensure no background color */
+    margin-right: 10px;
+  }
+
+  .nav-menu a i {
+    font-size: 1.7rem; /* Adjust the icon size */
+    background-color:rgba(255, 255, 255, 0.1) ; /* Ensure icon has no background color */
+  }
+
+  .nav-menu a span {
+    display: none; /* Hide text for small screens */
+  }
+
+  .nav-toggle {
+    display: block; /* Display hamburger icon */
+    position: absolute;
+    top: 20px; /* Position at the top of the screen */
+    right: 20px; /* Align hamburger icon to the right */
+    z-index: 1100; /* Ensure the hamburger icon is always on top */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center; /* Centers the links */
+  align-items: center;
+  background: #02f0a8;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  position: absolute; /* Logo stays fixed to the left */
+  left: 5rem;
+}
+
+
+
+
+.sb-icon i {
+  position: absolute;
+  font-size: 1rem;
+  color:  #ec3fe4;/* Faint circle background */
+  
+}
+
+.sb-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Equal to width for a perfect circle */
+  border-radius: 50%; /* Ensures the element is a circle */
+  background-color: lightgray; /* Optional: background color for the circle */
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.sb-icon span {
+  position: absolute;
+  z-index: 2; 
+  font-size:larger;
+  margin-bottom: 40px;
+  color: #ffffff;
+  
+} 
+
+/* Navbar Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0.6rem; /* Space between navigation items */
+  margin-left: auto; /* This pushes the links to the right */
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration:none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center; /* Aligns icon and text vertically */
+  gap: 0.3rem; /* Space between icon and text */
+}
+
+.nav-links a:hover {
+  color: #10fcad;
+}
+
+/* Transparent circle for icons */
+.nav-links i {
+  font-size: 1.2rem; /* Icon size */
+  color: #00df9a; /* Icon color */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border: 2px solid transparent; /* Default border for spacing */
+  border-radius: 50%; /* Makes the circle shape */
+  padding: 0.5rem; /* Space inside the circle */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent circle background */
+}
+
+.nav-links a:hover i {
+  color: #e4e6eb; /* Icon color changes on hover */
+  background-color: rgba(0, 223, 154, 0.2); /* Hover effect with transparent circle */
+  border-color: #00df9a; /* Border color on hover */
+}
+
+.menu-icon {
+  display: none;
+}
+
+/* Hero Section */
+/* styles.css */
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Ensure the height is enough for all content */
+  background-color: #0e1122;
+  padding: 20px;
+  margin-top: 60px;
+  position: relative; /* To manage positioning on smaller screens */
+}
+
+.hero-content {
+  display: flex;
+  align-items: center; /* Align items in the center vertically */
+  justify-content: space-between; /* Space out content evenly */
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+  gap: 20px; /* Add gap between text-content and profile-links on larger screens */
+}
+
+.text-content {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  text-align: left;
+  line-height: 1;
+  margin-right: 20px; /* Space between text and profile links on larger screens */
+  min-height: 120px; /* Ensure consistent height to prevent movement */
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.static-text {
+  font-size: 2.5rem;
+  margin: 10px 0 10px;
+  white-space: nowrap;
+}
+
+/* Dynamic Text */
+.dynamic-line {
+  font-size: 2rem;
+  color: #05fdaaf6;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+  word-wrap: break-word;
+  min-width: 300px; /* Reserve space for the longest dynamic text */
+}
+
+.dynamic-text {
+  display: inline-block; /* Keep dynamic text on the same line */
+  white-space: nowrap; /* Prevent wrapping for larger screens */
+}
+
+/* Blinking effect for first line */
+.first-line {
+  display: inline-block;
+  border-right: 2px solid #78b99bf6;
+  padding-right: 5px;
+  animation: blink 0.7s step-end infinite;
+  white-space: nowrap;
+}
+
+/* Blinking effect for second line */
+.second-line {
+  display: inline-block;
+  border-right: 2px solid #78b99bf6;
+  padding-right: 5px;
+  animation: blink 0.7s step-end infinite;
+  white-space: nowrap;
+  visibility: hidden; /* Hide second line initially */
+}
+
+/* Cursor blink effect */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Styling for the Connect Me link */
+.connect-me-link {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.connect-me-link:hover {
+  color: #000;
+  background-color: white;
+  border-color: #161b22;
+}
+
+/* Profile Links Section */
+.profile-links {
+  margin-top: 10px; /* Reduced gap */
+  flex: 1; /* Allow this section to take up remaining space */
+  text-align: left; /* Align profile links to the left */
+  min-height: 50px; /* Ensure consistent height to prevent movement */
+}
+
+.profile-links h2 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-top: 15px; /* Adjusted padding to reduce the gap */
+  text-align: left;
+  padding-left: 10px;
+}
+
+.links a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 5px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Highlight Text */
+.highlight {
+  font-weight: bold;
+  color: rgb(250, 7, 250);
+}
+
+/* Responsive Design for Mobile and Tablets */
+@media (max-width: 1190px) {
+  .hero {
+    height: auto; /* Allow section to grow in height on smaller screens */
+    padding: 40px 20px; /* Add extra padding to prevent overlap */
+  }
+
+  .hero-content {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    align-items: flex-start; /* Align items to the left */
+    text-align: left; /* Left-align content */
+    gap: 0px; /* Reduced gap between sections */
+  }
+
+
+  .text-content {
+    max-width: 100%; /* Ensure the text content takes full width */
+    margin-right: 0; /* No margin on smaller screens */
+    margin-bottom: 0;
+    min-height: 150px; /* Reduced space between text and profile links */
+    padding-bottom: 0;
+  }
+
+  .dynamic-line {
+    font-size: 1.5rem; /* Adjust dynamic text size for mobile */
+    text-align: left; /* Left-align text */
+    line-height: 1.2;
+    min-height: 40px; /* Set consistent height for the dynamic text */
+  }
+
+  .dynamic-text {
+    white-space: normal; /* Allow wrapping for better fit */
+    display: inline-block;
+  }
+
+  .profile-links {
+    margin-top: 0; /* Reduced gap for smaller devices */
+    text-align: left; /* Left-align profile links on small devices */
+    min-height:60px; /* Reserve space to prevent shifting */
+    padding-top: 0;
+    
+  }
+
+}
+
+@media (max-width: 480px) {
+  .text-content h1 {
+    font-size: 2rem; /* Adjust heading size for mobile */
+  }
+
+  .dynamic-line {
+    font-size: 1.2rem; /* Adjust dynamic text size for mobile */
+  }
+
+  .connect-me-link {
+    font-size: 0.9rem; /* Adjust font size for mobile */
+    padding: 8px 16px;
+  }
+
+  .links a {
+    font-size: 0.9rem; /* Adjust link font size */
+  }
+
+  .profile-links {
+    min-height: 70px; /* Ensure consistent height for smaller screens */
+  }
+}
+
+
+
+
+
+/* About Me Section */
+.about-me {
+  background-color:#0e1122 ; /* Background color */
+  color: #ffffff; /* Text color */
+  padding: 4rem 2rem; /* Section padding */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  padding: 85px 80px;
+}
+
+.about-me-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between; /* Text to the left, image to the right */
+  gap: 9rem; /* Space between text and image */
+  max-width: 1200px; /* Restrict maximum width */
+  margin: 0 auto; /* Center the container */
+  width: 100%;
+}
+
+.about-me-text {
+  flex: 1; /* Takes up available space */
+  text-align: justify; /* Aligns text to the left */
+}
+
+.about-me-text h2 {
+  font-size: 2.5rem;
+  color: #ffffff; /* Highlight color */
+  margin-bottom: 1.5rem;
+}
+
+.about-me-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Space for Image */
+.about-me-image {
+  flex: 0; /* Takes up available space */
+  display: flex;
+  justify-content: flex-end; /* Aligns image to the right */
+  padding-right: 10%;
+}
+
+.about-me-image img {
+  width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%; /* Circular image */
+  border: 4px solid #00df9a; /* Border color */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 1000px) {
+  .about-me-container {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center;
+    gap: 2rem; /* Reduced gap for tablets */
+  }
+
+  .about-me-image {
+    justify-content: center; /* Center image on smaller screens */
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me-container {
+    gap: 1rem; /* Smaller gap for mobile screens */
+  }
+
+  .about-me-image img {
+    width: 200px; /* Adjust image size for mobile */
+    height: 250px; /* Adjust image size for mobile */
+  }
+}
+
+/* Education section */
+#education {
+  padding: 87px 80px; /* Add top padding to account for navbar height */
+  background-color:#0e1122;
+  margin-top: 25px; /* To ensure it's not hidden by the navbar */
+}
+
+#education h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #ffffff;
+}
+
+.education-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px; /* Large gap for larger screens */
+  flex-wrap: wrap;
+}
+
+.education-item {
+  flex: 1;
+  min-width: 300px;
+  padding: 15px;
+  background-color: #1c1f38;
+  border: 1px solid #1c1f38;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Adds gap between the items when wrapping to the next line */
+}
+
+.education-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.education-item p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #ffffff;
+}
+
+/* Hide details by default */
+.details {
+  display: none;
+}
+
+/* Media Query for smaller devices */
+@media (max-width: 768px) {
+  .education-container {
+    flex-direction: column; /* Stack the items vertically */
+    gap: 20px; /* Smaller gap for stacked items */
+  }
+
+  .education-item {
+    min-width: 100%; /* Ensure items take full width */
+    margin-bottom: 20px; /* Keep gap between stacked items */
+  }
+}
+
+@media (max-width: 480px) {
+  #education {
+    padding: 60px 20px; /* Reduce padding for smaller screens */
+  }
+
+  #education h2 {
+    font-size: 1.8em; /* Adjust heading size for smaller screens */
+  }
+}
+
+
+
+
+/* Experience Section Styles */
+#experience {
+  padding: 85px 80px;
+  background-color: #0e1122; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+}
+
+#experience h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.experience-container {
+  display: flex;
+  justify-content: space-between; /* Ensures equal space between cards */
+  flex-wrap: wrap;
+  gap: 10px; /* Default gap between cards */
+}
+
+.experience-card {
+  background: linear-gradient(145deg, #1c1f38, #121529); /* Card gradient background */
+  border-radius: 12px;
+  padding: 15px; /* Slightly reduced padding */
+  flex: 1 1 45%; /* Flex-grow to ensure both divs take equal space */
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  min-width: 280px; /* Ensures card is not too small */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .experience-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
+  }
+
+  .experience-card {
+    max-width: 90%; /* Adjust card width on smaller screens */
+  }
+}
+
+/* Larger device responsiveness */
+@media (min-width: 1024px) {
+  .experience-container {
+    gap: 5px; /* Reduce the gap between cards for larger devices */
+  }
+
+  .experience-card {
+    flex: 1 1 45%; /* Make cards smaller on larger screens (still equal size) */
+    max-width: 45%; /* Ensures cards take up less space than on mobile */
+  }
+}
+
+
+
+/* toggle effect for experience */
+
+/* Experience Section Styles */
+.experience-card {
+  background: linear-gradient(145deg, #1c1f38, #121529); /* Default card gradient */
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 280px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Specific hover effect for Full-Stack Developer */
+.experience-card:first-child:hover {
+  background: linear-gradient(145deg, #181c2e, #0f1225); /* Darker gradient but distinct from section background */
+  transform: translateY(-3px); /* Slight lift effect */
+  cursor: pointer; /* Pointer to indicate interactivity */
+}
+
+/* Details Section */
+.details {
+  display: none;
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.details.hidden {
+  display: none;
+}
+
+.details:not(.hidden) {
+  display: block;
+}
+
+
+
+
+
+/* fade in effect in experience */
+
+.experience-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+}
+
+.experience-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* Section Styling */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #121529;
+  color: #e4e6eb;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+}
+
+h2 {
+  margin-bottom: 2rem;  /* Increased gap below the heading */
+  color: #ffffff;
+  font-size: 2.5rem;    /* Increased font size for better visibility */
+  font-weight: bold;
+  text-align: center;   /* Ensures the heading is centered */
+}
+
+/* Skills Section */
+#skills{
+  padding: 85px 80px;
+  background-color:#0e1122;
+
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Increased gap for better spacing */
+  margin-top: 1.5rem;
+  background-color:#0e1122;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column; /* Icons and text aligned vertically */
+  align-items: center;
+  background-color: #14c98f;
+  padding: 1rem;
+  border-radius: 10px; /* Slightly rounder corners */
+  color: #0d1117;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+  width: 120px; /* Consistent size for all skill blocks */
+}
+
+.skill i {
+  font-size: 3rem; /* Larger icon size */
+  margin-bottom: 0.5rem;
+  color: #0d1117; /* Icon color */
+}
+
+.skill:hover {
+  transform: scale(1.1);
+  background-color: #7dfdd2;
+  color: #0d1117;
+}
+
+.skill:hover i {
+  color: #0d1117; /* Invert icon color on hover */
+}
+
+
+/* Projects Section Styles */
+#projects {
+  padding: 85px 80px;
+  background-color: #0e1122; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background: linear-gradient(145deg, #1c1f38, #121529);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.project-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.project-card p {
+  font-size: 1em;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  display: inline-block;
+  margin-right: 10px;
+  color: #00ffcc;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #fff;
+}
+
+
+/* Contact Section */
+/* Contact Section Styles */
+#contact {
+  padding: 85px 80px;
+  text-align: center;
+  background-color: #0e1122;
+}
+
+.social-links {
+  margin-bottom: 2rem;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #55f3d9;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size:x-large;
+}
+
+.social-links a:hover {
+  color: #e6f7f6;
+}
+
+/* Form Styles */
+#contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #035db8;
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #09eaf1;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .social-links {
+    margin-bottom: 1.5rem;
+  }
+
+  #contact-form {
+    padding: 0 1rem;
+  }
+}
+
+
+/* Footer */
+footer {
+  background-color:#0e1122;
+  color: #e4e6eb;
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+}
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+  position: absolute;
+  right: 15px; /* Adjust positioning as needed */
+  bottom: 23px;
+  background-color: #fff;
+  color: #161b22;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #ccc;
+  transform: scale(1.1);
+}
+
+/* till footer */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #161b22;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex; /* Added for proper flex behavior */
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-placeholder img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .skills-container {
+    gap: 1rem; /* Smaller gaps on smaller screens */
+  }
+
+  .social-links {
+    gap: 1.5rem; /* Adjust gap for smaller screens */
+  }
+}
+
+
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #081d3d;
+  color: white;
+  padding: 1.2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Specific Sections */
+#about img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Skill Icons */
+.skill {
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+.sb-icon {
+  display: inline-block;
+  background: #ec3fe4;
+  padding: 0.85rem;
+  border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #about img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .skill {
+    display: block;
+    margin: 1rem auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  #about img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #home h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #161b22;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
