@@ -11,14 +11,10 @@ dotenv.config();
 export default async function handler(req, res) {
   // CORS setup for your frontend origin
   const corsOptions = {
-    origin: [
-      'https://sujanbhattarai1.com.np', // Custom domain
-      'https://portfolio-git-master-sujan-bhattarais-projects.vercel.app', // Vercel temporary URL for `master` branch
-    ],
+    origin: 'https://sujanbhattarai1.com.np', // Replace with your frontend's actual URL
     methods: ['GET', 'POST'],
     credentials: true,
   };
-  
 
   // Enable CORS for the request
   cors(corsOptions)(req, res, async () => {
