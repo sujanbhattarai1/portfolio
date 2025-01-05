@@ -891,7 +891,7 @@ nav {
 
 /* Button Styles */
 .toggle-details {
-  background-color: #0e1122; /* Initial background color */
+  background-color:#293f68e8; /* Initial background color */
   color: white; /* Initial font color */
   border: none; /* No border */
   border-radius: 6px; /* Rounded corners */
@@ -907,7 +907,7 @@ nav {
 .toggle-details:hover {
   background-color: white; /* Hover background color */
   color: #000; /* Hover font color */
-  font-weight: bold;
+  font-weight:549;
 }
 
 
