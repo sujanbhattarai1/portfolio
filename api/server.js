@@ -1,33 +1,15 @@
 import { createTransport } from 'nodemailer';
 import dotenv from 'dotenv';
-import cors from 'cors';
-import pkg from 'body-parser';
-const { urlencoded } = pkg;
 
-// Load environment variables from .env file
+// Load environment variables from the .env file
 dotenv.config();
 
-// Vercel serverless function handler
 export default async function handler(req, res) {
-  // CORS setup for your frontend origin
-  const corsOptions = {
-    origin: [
-      'https://sujanbhattarai1.com.np', // Custom domain
-      'https://portfolio-git-master-sujan-bhattarais-projects.vercel.app', // Vercel temporary URL for `master` branch
-    ],
-    methods: ['GET', 'POST'],
-    credentials: true,
-  };
-
-
-  // Enable CORS for the request
-  cors(corsOptions)(req, res, async () => {
-    // Only handle POST requests
-    if (req.method === 'POST') {
-      // Parse form data (you may need to manually handle this if it's raw JSON)
+  if (req.method === 'POST') {
+    try {
       const { name, email, message } = req.body;
 
-      // Configure Nodemailer with environment variables
+      // Configure Nodemailer
       const transporter = createTransport({
         service: 'gmail',
         auth: {
@@ -38,21 +20,20 @@ export default async function handler(req, res) {
 
       const mailOptions = {
         from: email,
-        to: process.env.EMAIL_USER, // Send email to your Gmail address
+        to: process.env.EMAIL_USER, // Your Gmail address
         subject: 'New Contact Form Submission',
         text: `You have received a new message from your website:\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`,
       };
 
-      try {
-        await transporter.sendMail(mailOptions);
-        res.status(200).send('Message sent successfully!');
-      } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).send('Failed to send the message. Please try again later.');
-      }
-    } else {
-      // Handle other HTTP methods (GET, etc.)
-      res.status(405).send('Method Not Allowed');
+      // Send the email
+      await transporter.sendMail(mailOptions);
+      res.status(200).json({ message: 'Message sent successfully!' });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      res.status(500).json({ message: 'Failed to send the message. Please try again later.' });
     }
-  });
+  } else {
+    res.setHeader('Allow', ['POST']);
+    res.status(405).json({ message: 'Method Not Allowed' });
+  }
 }

@@ -142,35 +142,34 @@ function scrollToHome() {
 /*form submission message in dialogue box */
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contact-form');
+
   if (contactForm) {
-    contactForm.addEventListener('submit', async function(event) {
+    contactForm.addEventListener('submit', async function (event) {
       event.preventDefault(); // Prevent default form submission
 
       const formData = new FormData(event.target);
-      const formObject = {}; // Initialize an empty object
+      const formObject = Object.fromEntries(formData.entries());
 
-      // Convert FormData into an object
-      formData.forEach((value, key) => {
-        formObject[key] = value;
-      });
+      try {
+        const response = await fetch('/api/server', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formObject),
+        });
 
-      // Reset the form immediately after the submission
-      contactForm.reset();
-
-      // Fetch request to your backend
-      const response = await fetch("https://portfolio-backend-hlzrzresf-sujan-bhattarais-projects.vercel.app/api/server", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Ensure content-type is set for URL-encoded data
-        },
-        body: new URLSearchParams(formObject), // Serialize formObject into URL-encoded format
-      });
-
-      if (response.ok) {
-        alert('Message sent successfully!');
-      } else {
-        alert('Failed to send the message. Please try again later.');
+        if (response.ok) {
+          alert('Message sent successfully!');
+        } else {
+          alert('Failed to send the message. Please try again later.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
       }
+
+      contactForm.reset(); // Reset the form after submission
     });
   }
 });

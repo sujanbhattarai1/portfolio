@@ -14,5 +14,8 @@
     "dotenv": "^16.4.7",
     "nodemailer": "^6.9.16"
   },
-  "description": "A project to handle contact form submissions with email notifications"
+  "engines": {
+    "node": ">=16.x"
+  },
+  "description": "A portfolio project to handle contact form submissions with email notifications using Nodemailer."
 }
